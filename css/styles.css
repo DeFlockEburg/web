@@ -41,6 +41,7 @@ body {
   left: 0;
   right: 0;
   will-change: transform, opacity, background-position;
+  top: 0;
 }
 
 .parallax-top {
@@ -50,26 +51,27 @@ body {
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: local;
-  background-size: contain;
+  background-size: cover;
+  z-index: 2;
 }
 
 .parallax-tile {
-  top: 0;
   bottom: 0;
   background-image: url("../bg_tile.png");
   background-repeat: repeat-y;
   background-position: center top;
   background-size: contain;
+  z-index: 1;
 }
 
 .parallax-bottom {
   bottom: 0;
-  height: 520px;
   background-image: url("../bg_bottom.png");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: contain;
   opacity: 0;
+  z-index: 3;
 }
 
 #mainPageContent {
@@ -91,8 +93,7 @@ body {
   margin: 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
-  margin-bottom: 300px;
+
 }
 
 /* Header Styles 
