@@ -6,6 +6,9 @@
     <title>DeFlock Ellensburg</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -232,7 +235,8 @@
                     src='https://storage.ko-fi.com/cdn/kofi4.png?v=6' border='0'
                     alt='Buy Me a Coffee at ko-fi.com' /></a>
         </p>
-        <div class="references">
+        <button id="toggleReferences" class="references-toggle-btn">Show References</button>
+        <div class="references" id="referencesSection">
             <h3>References</h3>
             <ol style="list-style: none;">
                 <li><strong>[1]</strong> <a href="https://www.king5.com/article/news/investigations/investigators/federal-immigration-accessed-washington-state-license-plate-readers/281-93b1edfe-f761-4e3f-9118-ed72e04c1864">Federal immigration accessed Washington state license plate readers</a></li>
@@ -282,6 +286,27 @@
             window.addEventListener('scroll', onScroll, { passive: true });
             window.addEventListener('resize', onScroll);
             onScroll();
+        })();
+
+        // Toggle references section
+        (function () {
+            const toggleBtn = document.getElementById('toggleReferences');
+            const referencesSection = document.getElementById('referencesSection');
+            
+            if (!toggleBtn || !referencesSection) return;
+            
+            toggleBtn.addEventListener('click', function() {
+                const isHidden = referencesSection.style.display === 'none' || 
+                                 getComputedStyle(referencesSection).display === 'none';
+                
+                if (isHidden) {
+                    referencesSection.style.display = 'block';
+                    toggleBtn.textContent = 'Hide References';
+                } else {
+                    referencesSection.style.display = 'none';
+                    toggleBtn.textContent = 'Show References';
+                }
+            });
         })();
     </script>
 </body>
